@@ -8,7 +8,7 @@ interface MatchCardProps {
   name: string;
   handle: string;
   avatarUrl?: string;
-  tier: string;
+  tier: string | number;
   niche: string;
   tags: string[];
   bio: string;
@@ -52,7 +52,7 @@ export function MatchCard({
             {/* Tier Badge */}
             <div className="mt-1.5 sm:mt-2">
               <span className="inline-flex items-center rounded-full bg-sky-50 px-2.5 py-0.5 text-xs font-semibold text-sky-700 border border-sky-200 sm:px-3">
-                {tier}
+                {typeof tier === 'number' ? `Tier ${tier}` : tier}
               </span>
             </div>
           </div>

@@ -1,9 +1,10 @@
 interface TierBadgeProps {
-  tier: string;
+  tier: string | number;
   size?: "sm" | "md" | "lg";
 }
 
 export function TierBadge({ tier, size = "md" }: TierBadgeProps) {
+  const tierLabel = typeof tier === 'number' ? `Tier ${tier}` : tier;
   const tierColors: Record<string, string> = {
     "Tier 1": "bg-purple-50 text-purple-600 border-purple-200",
     "Tier 2": "bg-blue-50 text-blue-600 border-blue-200",
@@ -19,8 +20,8 @@ export function TierBadge({ tier, size = "md" }: TierBadgeProps) {
   };
 
   return (
-    <span className={`inline-flex rounded-lg border font-semibold ${tierColors[tier] || tierColors["Tier 5"]} ${sizeClasses[size]}`}>
-      {tier}
+    <span className={`inline-flex rounded-lg border font-semibold ${tierColors[tierLabel] || tierColors["Tier 5"]} ${sizeClasses[size]}`}>
+      {tierLabel}
     </span>
   );
 }
