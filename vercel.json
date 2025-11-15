@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd connectx && npm run build",
+  "outputDirectory": "connectx/.next",
+  "installCommand": "cd connectx && npm install",
+  "framework": "nextjs",
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}
